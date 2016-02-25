@@ -19,14 +19,16 @@ if (isset($_POST['action'])) {
             $vot = new Voto();
             
             $codCandidato = intval($_POST['data']['id']);
-            /*$ccVotante = $_SESSION['categoria'];
+            $ccVotante = $_SESSION['categoria'];
             $codEnlace = $_SESSION['categoria'];
-            $formaV = $_SESSION['categoria'];*/
+            $formaV = $_SESSION['categoria'];
             
-            //$vot->registrarVoto($codCandidato, $ccVotante, $codEnlace, $formaV);
-            $vot->registrarVoto($codCandidato, "", "", "");
+            $vot->registrarVoto($codCandidato, $ccVotante, $codEnlace, $formaV);
             
-            die(json_encode("trabajando"));
+            $_SESSION['autorizaVoto'] = null;
+            $_SESSION['autorizaVotoOnline'] = null;
+            
+            die(json_encode("_view.php"));
             break;
     }
 }

@@ -1,11 +1,11 @@
 <?php
-/* session_start();
+ session_start();
 
   if( isset($_SESSION['permisos']) && ($_SESSION['permisos'] == "votacion" || $_SESSION['permisos'] == "control total")
   || $_SESSION['permisosOnline'] = "online"){
   if( (isset($_SESSION['autorizaVoto']) && $_SESSION['autorizaVoto'] == true) ||
   (isset($_SESSION['autorizaVotoOnline']) && $_SESSION['autorizaVotoOnline'] == true) ){
- */
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,7 +95,7 @@
 </html>
 
 <?php
-/*
+
   }//fin if interno
   else{
   if($_SESSION['autorizaVoto'] == false){
@@ -112,5 +112,5 @@
   header("Location: ../index.php");
   }
   }
- */
+
 ?>
