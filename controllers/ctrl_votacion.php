@@ -16,6 +16,7 @@ if( isset($_POST["data"]) ){
         $_SESSION['autorizaVoto'] = true;
 
         $resp['estado'] = true;
+        $_SESSION['categoria'] = $resserv['data'];
 
         if($resserv['data'] == "oficial"){
             $resp['msg'] = 'votoofc.php';
@@ -29,6 +30,7 @@ if( isset($_POST["data"]) ){
         $_SESSION['autorizaVoto'] = false;
 
         $resp['estado'] = false;
+        $_SESSION['categoria'] = "";
         $resp['msg'] = "Verifique el número de documento";
         die(json_encode($resp));
     }
