@@ -1,0 +1,78 @@
+html,body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    /*background-color: #888A65;*/
+}
+.container{
+    height: 100%;
+    background-color: white;
+}
+.container > div{
+    height: 80%;
+}
+.body{
+    background-color: #282C34;
+}
+.fimg{
+    height: 50%;
+}
+.vwhite{
+    height: 10%;
+    padding-top: 1%;
+    border: 2px solid black;
+    /*background-color: red;*/
+}
+.photoCont{
+    height: 85%;
+}
+.btnCont{
+    /*background-color: yellowgreen;
+    height: 15%;*/
+}
+.photoCont > div{
+    height: 100%;
+}
+.imgCont{
+    height: 80%;
+}
+h1{
+    font-size: 1.5em;
+}
+h2{
+    font-size: 1.2em;
+}
+h3{
+    font-size: 0.99em;
+}
+.imgcenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+}
+.banner{
+    /*box-shadow: 2px 2px 5px #999;*/
+}
+.imgCandidatos{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    z-index: 0;
+}
+hr{
+    border-color: #888A65;
+}
+
+.marca{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+.marca > img{
+    width: 100%;
+    height: 100%;
+}

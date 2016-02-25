@@ -1,0 +1,15 @@
+/* nav style*/
+.navbar{
+    /*background-color: #282C34;*/
+    margin-bottom: 0;
+}
+.navbar a{
+    /*color: #C8D4B2 !important;*/
+}
+.nav li.active a{
+    /*color: #282C34 !important;*/
+}
+/*container*/
+.container{
+    margin-top: 0;
+}
