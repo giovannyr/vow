@@ -17,13 +17,14 @@ if( isset($_POST["data"]) ){
 
         $resp['estado'] = true;
         $_SESSION['categoria'] = $resserv['data'];
+        $resp['msg'] = 'papeleta.php';
 
-        if($resserv['data'] == "oficial"){
+        /*if($resserv['data'] == "oficial"){
             $resp['msg'] = 'votoofc.php';
         }
         if($resserv['data'] == "suboficial"){
             $resp['msg'] = 'votosubofc.php';
-        }
+        }*/
 
         die(json_encode($resp));
     }else{

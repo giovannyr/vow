@@ -28,6 +28,47 @@
             </header>
             <div class="row p" id="planchas">
 
+                <!--                <div class="col-md-6 col-sm-6 col-md-offset-3 " style="margin-top: 2%">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-6">
+                                            <div class="col-md-12 col-sm-6">
+                                                <div class="vwhite">
+                                                    <img src="../images/votoblanco.png" id="ivblanco" style="width: 100%;" >
+                                                    <div class="marca" id="mvb" style="display: none;">
+                                                        <img src="../images/x.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-12">
+                                    <br>
+                                    <button class="btn btn-success center-block" id="btnVotar">Registrar Voto</button>
+                                </div>-->
+            </div>
+        </div>
+
+        <script type="text/template" id="tmp_planchas">
+            <% _.each(datos, function(dato){ %>            
+            <div class="col-md-6 col-sm-6 fimg">
+                <div class="row">
+                    <div class="col-md-12 col-sm-6 photoCont">
+                         <div class="col-md-12 col-sm-6">
+                             <div class="imgCont">
+                                 <img src="../images/<%=dato.imagen%>" class="imgCandidatos" 
+                                     data-role="select" data-id="<%=dato.id%>" >
+                                 <div class="marca" data-id="<%=dato.id%>" style="display: none;">
+                                     <img src="../images/x.png">
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+                        
                 <div class="col-md-6 col-sm-6 col-md-offset-3 " style="margin-top: 2%">
                     <div class="row">
                         <div class="col-md-12 col-sm-6">
@@ -45,28 +86,8 @@
 
                 <div class="col-md-12">
                     <br>
-                    <button class="btn btn-success center-block">Registrar Voto</button>
+                    <button class="btn btn-success center-block" id="btnVotar">Registrar Voto</button>
                 </div>
-            </div>
-        </div>
-
-        <script type="text/template" id="tmp_planchas">
-            <% _.each(datos, function(dato){ %>            
-            <div class="col-md-6 col-sm-6 fimg">
-                <div class="row">
-                    <div class="col-md-12 col-sm-6 photoCont">
-                         <div class="col-md-12 col-sm-6">
-                             <div class="imgCont">
-                                 <img src="../images/<%=dato.imagen%>" id="p1" class="imgCandidatos" >
-                                 <div class="marca" id="mp1" style="display: none;">
-                                     <img src="../images/x.png">
-                                 </div>
-                             </div>
-                         </div>
-                    </div>
-                </div>
-            </div>
-            <% }); %>
         </script>
         <script src="../js/underscore.js"></script>
         <script src="../js/planchas.js"></script>

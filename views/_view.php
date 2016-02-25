@@ -48,7 +48,7 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
                         <div class="form-group">
                             <label for="doc" class="col-sm-2 control-label">Documento</label>
                             <div class="col-sm-10">
-                                <input type="test" class="form-control" name="doc" id="doc" placeholder="Documento" autocomplete="off" required>
+                                <input type="test" class="form-control" name="doc" id="doc" placeholder="Documento" autocomplete="off"  autofocus required>
                             </div>
                         </div>
                         <div class="form-group">
