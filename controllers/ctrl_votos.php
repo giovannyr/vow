@@ -19,7 +19,7 @@ if (isset($_POST['action'])) {
             $vot = new Voto();
             
             $codCandidato = intval($_POST['data']['id']);
-            $ccVotante = $_SESSION['categoria'];
+            $ccVotante = $_SESSION['ccVotante'];
             $codEnlace = $_SESSION['categoria'];
             $formaV = $_SESSION['categoria'];
             
