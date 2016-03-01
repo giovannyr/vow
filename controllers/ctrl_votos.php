@@ -20,8 +20,23 @@ if (isset($_POST['action'])) {
             
             $codCandidato = intval($_POST['data']['id']);
             $ccVotante = $_SESSION['ccVotante'];
-            $codEnlace = $_SESSION['categoria'];
-            $formaV = $_SESSION['categoria'];
+            $codEnlace = ( isset($_SESSION['codigo']) ) ? $_SESSION['codigo'] : "sin codigo";
+            
+            if(isset($_SESSION['permisosOnline'])){
+                if($_SESSION['permisosOnline'] == "online"){
+                    $formaV = "online";
+                }elseif(isset ($_SESSION['usuario'])){
+                    $formaV = $_SESSION['usuario'];
+                }else{
+                    $formaV = "--";                    
+                }
+            }else{
+                if(isset ($_SESSION['usuario'])){
+                    $formaV = $_SESSION['usuario'];
+                }else{
+                    $formaV = "--";                    
+                }
+            }
             
             $vot->registrarVoto($codCandidato, $ccVotante, $codEnlace, $formaV);
             

@@ -5,7 +5,7 @@
   || $_SESSION['permisosOnline'] = "online"){
   if( (isset($_SESSION['autorizaVoto']) && $_SESSION['autorizaVoto'] == true) ||
   (isset($_SESSION['autorizaVotoOnline']) && $_SESSION['autorizaVotoOnline'] == true) ){
- 
+ // verificar si existe variable de session: autorizaVotoOnline
 ?>
 <!DOCTYPE html>
 <html>

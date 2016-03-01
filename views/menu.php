@@ -41,11 +41,23 @@
                     }
                     ?>
                 </li>
+                <li <?php echo ($include == 'envios') ? 'class="active"' : '' ?>>
+                    <?php
+                    if(isset($_SESSION['permisos'])){
+                    if($_SESSION['permisos'] == 'control total'){
+                    ?>
+                    <a href="envios.php">Envio de emails</a>
+                    <?php
+                    }
+                    }
+                    ?>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <?php
-                    if(isset($_SESSION['permisos']) && ($_SESSION['permisos'] == 'control total' || $_SESSION['permisos'] == 'reportes')){
+                    if(isset($_SESSION['permisos']) && ($_SESSION['permisos'] == 'control total' || $_SESSION['permisos'] == 'reportes'
+                             || $_SESSION['permisos'] == 'votacion')){
                     ?>
                     <a href="logout.php">Cerrar Sesion</a>
                     <?php

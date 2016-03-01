@@ -9,6 +9,7 @@ if(isset($_POST["user_v"])){
     $pass = htmlspecialchars($_POST["pass_v"]);
 
     if( validarUsuario($user, $pass) ){
+        $_SESSION['usuario'] = $user;
         $_SESSION['autenticado'] = true;
 
         $permisos = obtenerPermisos($user);
@@ -25,6 +26,7 @@ if(isset($_POST["user_v"])){
 
         die(json_encode($resp));
     }else{
+        $_SESSION['usuario'] = null;
         $_SESSION['autenticado'] = false;
 
         $resp['au'] = false;

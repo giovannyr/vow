@@ -25,19 +25,17 @@ class GenerarExcel{
                                      ->setCategory("Report");
 
         $objPHPExcel->setActiveSheetIndex(0)
-                 ->setCellValue('A1', 'CEDULA VOTANTE')
-                 ->setCellValue('B1', 'CANDIDATOS')
-                 ->setCellValue('C1', 'CATEGORIA')
-                 ->setCellValue('D1', 'VOTACION')
-                 ->setCellValue('E1', 'PLANCHA');
+                 ->setCellValue('A1', 'CANDIDATOS')
+                 ->setCellValue('B1', 'CATEGORIA')
+                 ->setCellValue('C1', 'VOTACION')
+                 ->setCellValue('D1', 'PLANCHA');
 
         foreach($resp as $key=>$row){
             $objPHPExcel->setActiveSheetIndex(0)
-                     ->setCellValue('A' . ($key + 2), $row['ccVotante'])
-                     ->setCellValue('B' . ($key + 2), $row['nombres'])
-                     ->setCellValue('C' . ($key + 2), $row['categoria'])
-                     ->setCellValue('D' . ($key + 2), $row['forma_votacion'])
-                     ->setCellValue('E' . ($key + 2), $row['plancha']);
+                     ->setCellValue('A' . ($key + 2), $row['nombres'])
+                     ->setCellValue('B' . ($key + 2), $row['categoria'])
+                     ->setCellValue('C' . ($key + 2), $row['forma_votacion'])
+                     ->setCellValue('D' . ($key + 2), $row['plancha']);
         }
 
         $objPHPExcel->getActiveSheet()->setTitle('Simple');
@@ -46,9 +44,8 @@ class GenerarExcel{
         $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
         $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
         $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
 
-        $objPHPExcel->getActiveSheet()->getStyle('A1:E1')->getFont()->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:D1')->getFont()->setBold(true);
 
         $objPHPExcel->setActiveSheetIndex(0);
 

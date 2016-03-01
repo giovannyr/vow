@@ -62,7 +62,7 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
             <br>
             <div class="col-md-6 col-md-offset-3">
                 <div id="alert_user" class="alert alert-danger" role="alert" style="display: none">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <strong>Error!</strong> <span id="msgtu"></span>
                 </div>
             </div>

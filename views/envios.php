@@ -1,51 +1,62 @@
 <?php
+session_start();  // validar permisos usuario
 
-require "../config/basedatos.php";
-require "../resources/PHPMailer/class.phpmailer.php";
+if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) {
+    if ($_SESSION['permisos'] == "control total") {
+        ?>
 
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>Envio emails</title>
+                <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css" />
+                <script type="text/javascript" src="../js/jquery.js"></script>
+                <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
+                <style>
+                    .cont-frm{
+                        /*height: 20%;*/
+                        padding: 30px 20px;
+                        color: #FFF;
+                        border-radius: 5px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        -webkit-transform: translate(-50%, -50%);
+                        background-color: #21252B;
+                    }
+                </style>
+            </head>
+            <body>
 
+                <?php include "menu.php"; ?>
 
-$result = mysql_query("SELECT correo, id, codigo
-            FROM
-            votante
-            join codigoenlace
-            on votante.idcodigo = codigoenlace.id");
+                <div class="container">
+                    <div class="row">
+                        <div class="cont-frm">
+                            <form id="frm_envioEmails">
+                                <label for="">Enviar emails a los usuarios</label>
+                                <br>
+                                <br>
+                                <input type="hidden" name="data" />
+                                <button class="btn btn-primary center-block">Enviar</button>
+                            </form>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
 
-while($row = mysql_fetch_array($result)){
-    //echo $row['correo']." ".$row['id']." ".$row['codigo']."<br>";
-    enviarEmail($row['correo'], $row['codigo']);
-}
+                <script src="../js/util.js"></script>
+                <script src="../js/envioEmails.js"></script>
+            </body>
+        </html>
 
-mysql_close($link);
-
-
-
-
-function enviarEmail($email_destinatario, $codigo){
-
-    $enlace = "http://192.168.0.4/vow/views/votacion.php?r=".$codigo;
-
-    $mensaje = '<a href="'.$enlace.'" target="_blank">Votar</a>';
-    $asunto = "test enlace unico";
-
-    $mail = new PHPMailer;
-    $mail->Host = "localhost";
-    $mail->From = "correosvarios4@gmail.com";
-    $mail->FromName = "itech";
-    $mail->Subject = $asunto;
-    $mail->addAddress($email_destinatario, $email_destinatario);
-    $mail->MsgHTML($mensaje);
-    $mail->send();
-
-    /*if($adjunto['size'] > 0){
-        $mail->addAttachment($adjunto['tmp_name'],$adjunto['name']);
+        <?php
+    } elseif ($_SESSION['permisos'] == "reportes") {
+        header("Location: reportes.php");
     }
-
-    if($mail->send()){
-        $msg = "Se envio el mail";
-    }else{
-        $msg = "Error al enviar el mail";
-    }*/
+} else {
+    header("Location: ../index.php");
 }
 
 ?>
