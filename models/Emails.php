@@ -33,9 +33,23 @@ class Emails {
     
     function enviarEmail($email_destinatario, $codigo) {
         //$enlace = "http://salavirtual.com.co/vow/views/votacion.php?r=" . $codigo;
-        $enlace = "http://192.168.0.3/vow/views/votacion.php?r=" . $codigo;
+        $enlace = "http://192.168.0.8/vow/views/votacion.php?r=" . $codigo;
 
-        $mensaje = '<a href="' . $enlace . '" target="_blank">Ir a la votacion</a>';
+        //$mensaje = '<a href="' . $enlace . '" target="_blank">Ir a la votacion</a>';
+        $mensaje = '<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img src="../invitacion/invitacion.png" width="710" height="1000" border="0" usemap="#map" />
+
+		<map name="map">
+		<area shape="rect" coords="248,773,459,832" target="_blank" alt="Enlace a la pagina de votacion" href="http://192.168.0.8/vow/views/votacion.php?r=MQ==" />
+	</map>
+</body>
+</html>';
         $asunto = "test enlace unico";
 
         $mail = new PHPMailer;

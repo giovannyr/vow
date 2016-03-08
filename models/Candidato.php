@@ -15,7 +15,7 @@ class Candidato {
     
     
     public function dataCandidatos($categoria){
-        $query = "SELECT * FROM candidato WHERE categoria = '".$categoria."'";
+        $query = "SELECT * FROM candidato WHERE categoria = '".$categoria."' OR categoria = 'voto blanco'";
         $result = mysql_query($query, $this->link);
         
         while($row = mysql_fetch_assoc($result)){

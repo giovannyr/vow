@@ -16,7 +16,7 @@ function enviar(data){
 function mostrarMensaje(msg){
     $('#alert_user').css('display', '');
     $('#msgtu').text(msg);
-    $('#doc').focus()
+    $('#doc').focus();
 }
 
 
