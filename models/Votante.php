@@ -9,9 +9,17 @@ class Votante{
         $this->link = DbOperator::conexion();
     }
 
-    public function consultar($doc){
+    public function consultar($doc, $cod){
         $response = array();
-        $query = "SELECT * FROM votante WHERE cedula = '".$doc."'";
+        
+        $query = "SELECT * FROM votante 
+                JOIN codigoverificacion
+                ON votante.idCodVerificacion = codigoverificacion.id
+                WHERE 
+                cedula = '".$doc."'
+                AND
+                BINARY codigo = '".$cod."';";
+        
         $result = mysql_query($query, $this->link);
         $response['cant'] = mysql_num_rows($result);
         if($response['cant'] == 1){

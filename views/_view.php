@@ -25,6 +25,8 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
                 -webkit-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
                 -moz-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
                 box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
+				background-image: url("../images/1.jpg");
+                background-size: 980px 750px;
             }
             #test{
                 margin-top: 10%;
@@ -32,7 +34,7 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
                 border: 1px solid white;
                 border-radius: 5px;
                 box-shadow: 5px 5px 10px rgba(0,0,0,0.75);
-                background-color: gray;
+                background-color: #C9C9C9;
             }
         </style>
     </head>

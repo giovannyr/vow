@@ -14,7 +14,7 @@
             }
             .container-fluid{
                 height: 100%;
-                background-color: #282C34;
+                 background-image: url("../images/3.jpg");
             }
             .row{
                 height: 50%;

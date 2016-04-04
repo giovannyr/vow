@@ -16,8 +16,20 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
     <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
 
     <style>
+        html,body{
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
         .container{
-            height: 590px
+            height: 700px;
+            border: 1px solid red;
+        }
+        .table-responsive{
+            height: 500px;
+            overflow-y: scroll;
+            overflow-x: hidden; 
+            border: 1px solid blue;
         }
     </style>
 
@@ -27,14 +39,23 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <center><h3>Reporte de Votacion</h3></center>
-                <hr>
+                <div class="row">
+                    <div class="col-md-9">
+                        <center><h3>Reporte de Votaci&oacute;n</h3></center>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success" id="btn-gExcel" style="margin-top: 20px; margin-bottom: 10px;">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+                            Descargar Reporte
+                        </button>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <h4>Total de votos: <span id="totalVotos"></span></h4>
                 </div>
                 <div class="col-md-12">
                     <div class="table-responsive">
-                        <table class="table table-condensed table-bordered">
+                        <table class="table table-condensed table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Categoria</th>
@@ -43,20 +64,10 @@ if( isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true ){
                                     <th>Plancha</th>
                                 </tr>
                             </thead>
-                            <tbody id="informe">
-
-                            </tbody>
+                            <tbody id="informe"></tbody>
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <button class="btn btn-success center-block" id="btn-gExcel">
-                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" style="font-size:1.8em"></span><br>
-                    Descargar Reporte en excel
-                </button>
             </div>
         </div>
     </div>

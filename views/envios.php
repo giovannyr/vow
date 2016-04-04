@@ -13,6 +13,21 @@ if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) {
                 <script type="text/javascript" src="../js/jquery.js"></script>
                 <script type="text/javascript" src="../resources/bootstrap/js/bootstrap.min.js"></script>
                 <style>
+                     html, body{
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+                .container{
+                    height: 100%;
+                    -webkit-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
+                    box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
+                    background-image: url("../images/1.jpg");
+                    background-size: 980px 750px;
+                    margin-top: -20px;
+
+                }
                     .cont-frm{
                         /*height: 20%;*/
                         padding: 30px 20px;
@@ -23,8 +38,8 @@ if (isset($_SESSION['autenticado']) && $_SESSION['autenticado'] == true) {
                         top: 50%;
                         transform: translate(-50%, -50%);
                         -webkit-transform: translate(-50%, -50%);
-                        background-color: #21252B;
-                    }
+                        background-color: #A0A0A0;
+                        }
                 </style>
             </head>
             <body>

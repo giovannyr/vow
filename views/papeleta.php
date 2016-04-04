@@ -20,34 +20,13 @@
     <body>
         <div class="container">
             <header  class="banner" align="center">
-                <img src="../images/banner.png" alt="Banner" class="imgcenter"/>
-                <h2><u><b>CATEGORIA DE OFICIALES CON ASIGNACIÓN DE RETIRO</b></u> </h2>
-                <h2>ELECCIONES REPRESENTANTES ANTE EL CONSEJO DIRECTIVO DE CREMIL DEL 01 DE ABRIL DE 2016 AL 31 DE MARZO DE 2018</h2>
-                <h6><b>MARQUE CON UNA “X” UN SOLO RECUADRO</b></h6>
+                <!--<img src="../images/banner.png" alt="Banner" class="imgcenter"/>-->
+                <h1><b>FONDO DE EMPLEADOS DE CAVIPETROL, FEMCA</b></h1>
+                <h4>ELECCION DE DELEGADOS PARA ASAMBLEA GENERAL 2016</h4>
+                <h6><b>Haga click sobre la imagen del candidato por el que desea votar</b></h6>
                 <hr>
             </header>
-            <div class="row p" id="planchas">
-
-                <!--                <div class="col-md-6 col-sm-6 col-md-offset-3 " style="margin-top: 2%">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-6">
-                                            <div class="col-md-12 col-sm-6">
-                                                <div class="vwhite">
-                                                    <img src="../images/votoblanco.png" id="ivblanco" style="width: 100%;" >
-                                                    <div class="marca" id="mvb" style="display: none;">
-                                                        <img src="../images/x.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                                <div class="col-md-12">
-                                    <br>
-                                    <button class="btn btn-success center-block" id="btnVotar">Registrar Voto</button>
-                                </div>-->
-            </div>
+            <div class="row p" id="planchas"></div>
         </div>
 
         <script type="text/template" id="tmp_planchas">
@@ -58,11 +37,12 @@
                             <div class="col-md-12 col-sm-6 photoCont">
                                  <div class="col-md-12 col-sm-6">
                                      <div class="imgCont">
-                                         <img src="../images/candidatos/<%=dato.imagen%>" class="imgCandidatos" 
-                                             data-role="select" data-id="<%=dato.id%>" >
-                                         <div class="marca" data-id="<%=dato.id%>" style="display: none;">
-                                             <img src="../images/x.png">
-                                         </div>
+                                        <img src="../images/candidatos/<%=dato.imagen%>" class="imgCandidatos" 
+                                        data-role="select" data-id="<%=dato.id%>" width="80" height="72">
+                                        <span><b><%=dato.nombres%></b></span>
+                                        <div class="marca" data-id="<%=dato.id%>" style="display: none;">
+                                            <img src="../images/x.png">
+                                        </div>
                                      </div>
                                  </div>
                             </div>

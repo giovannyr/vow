@@ -43,7 +43,7 @@ if (isset($_POST['action'])) {
             $_SESSION['autorizaVoto'] = null;
             $_SESSION['autorizaVotoOnline'] = null;
             
-            die ( (isset($_SESSION['permisosOnline']) && $_SESSION['permisosOnline'] == "online") ? json_encode("success.php") : json_encode("_view.php") );
+            die ( (isset($_SESSION['permisosOnline']) && $_SESSION['permisosOnline'] == "online") ? json_encode("userMessages/success.php") : json_encode("_view.php") );
             break;
     }
 }

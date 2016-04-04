@@ -1,18 +1,21 @@
 <?php
 session_start();
-require "../config/basedatos.php";
+require "../models/Login.php";
 
 $resp = array();
 
 if(isset($_POST["user_v"])){
+    
+    $login = new Login();
+    
     $user = htmlspecialchars($_POST["user_v"]);
     $pass = htmlspecialchars($_POST["pass_v"]);
 
-    if( validarUsuario($user, $pass) ){
+    if( $login->validarUsuario($user, $pass) ){
         $_SESSION['usuario'] = $user;
         $_SESSION['autenticado'] = true;
 
-        $permisos = obtenerPermisos($user);
+        $permisos = $login->obtenerPermisos($user);
 
         $_SESSION['permisos'] = $permisos;
 
@@ -24,6 +27,7 @@ if(isset($_POST["user_v"])){
             $resp['msg'] = "reportes.php";
         }
 
+        $login->cerrar();
         die(json_encode($resp));
     }else{
         $_SESSION['usuario'] = null;
@@ -32,29 +36,10 @@ if(isset($_POST["user_v"])){
         $resp['au'] = false;
         $resp['msg'] = "Usuario o contraseña incorrectos";
 
+        $login->cerrar();
         die(json_encode($resp));
     }
 }
 
-function validarUsuario($user, $pass){
-    global $link;
-
-    $query = "SELECT * FROM usuario WHERE usuario='".$user."' AND pass='".sha1($pass)."' ";
-    $result = mysql_query($query, $link);
-
-    if(mysql_num_rows($result) == 1){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-function obtenerPermisos($user){
-    global $link;
-
-    $query = "SELECT permisos FROM usuario WHERE usuario = '".$user."'";
-    $resp = mysql_result(mysql_query($query),0);
-    return $resp;
-}
 
 ?>

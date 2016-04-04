@@ -9,8 +9,9 @@ if (isset($_POST["data"])) {
 
     $per = new Votante;
     $doc = htmlspecialchars($_POST["doc"]);
+    $codigoV = htmlspecialchars($_POST["codigoV"]);
 
-    $resserv = $per->consultar($doc);
+    $resserv = $per->consultar($doc, $codigoV);
 
     if ($resserv['cant'] == 1) {
         if ($per->consultarVotosCedula($doc) == false) {
@@ -38,7 +39,7 @@ if (isset($_POST["data"])) {
 
         $resp['estado'] = false;
         $_SESSION['categoria'] = "";
-        $resp['msg'] = "Verifique el número de documento";
+        $resp['msg'] = "Verifique el número de documento y codigo de verificación";
         die(json_encode($resp));
     }
 

@@ -5,7 +5,7 @@ class DbOperator{
     private static $link;
     private static $server = "localhost";
     private static $user = "root";
-    private static $pass = "";
+    private static $pass = "123456";
     private static $database = "votacion";
 
     public static function conexion(){

@@ -22,6 +22,6 @@ function mostrarMensaje(msg){
 
 $('#form-docu').submit(function(e){
     e.preventDefault();
-    data = $(this).serializeForm();
+    var data = $(this).serializeForm();
     enviar(data);
 });

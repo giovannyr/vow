@@ -11,7 +11,7 @@
                 width: 100%;
                 height: 100%;
                 margin: 0;
-                background-image: url(../images/success_fondo.png);
+                background-image: url(../../images/success_fondo.png);
             }
             .container{
                 height: 100%;

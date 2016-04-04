@@ -24,6 +24,8 @@ if( isset($_SESSION['codigo']) ){
                 -webkit-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
                 -moz-box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
                 box-shadow: 5px 0px 10px rgba(0,0,0,0.75), -5px 0px 10px rgba(0,0,0,0.75);
+				background-image: url("../images/1.jpg");
+                background-size: 980px 750px;
             }
             #test{
                 margin-top: 10%;
@@ -31,7 +33,7 @@ if( isset($_SESSION['codigo']) ){
                 border: 1px solid white;
                 border-radius: 5px;
                 box-shadow: 5px 5px 10px rgba(0,0,0,0.75);
-                background-color: gray;
+                background-color: #C9C9C9;
             }
         </style>
     </head>
@@ -41,19 +43,19 @@ if( isset($_SESSION['codigo']) ){
 
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3" id="test">
-                    <form class="form-horizontal" id="form-docu">
+                <div class="col-md-4 col-md-offset-4" id="test">
+                    <form id="form-docu">
                         <input type="hidden" name="data" value="">
                         <div class="form-group">
-                            <label for="doc" class="col-sm-2 control-label">Documento</label>
-                            <div class="col-sm-10">
-                                <input type="test" class="form-control" name="doc" id="doc" placeholder="Documento" autocomplete="off" required>
-                            </div>
+                            <label for="doc">Documento:</label>
+                            <input type="text" class="form-control" name="doc" id="doc" placeholder="Documento" autocomplete="off" autofocus="true" required>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Aceptar</button>
-                            </div>
+                            <label for="codigoV">Codigo de verificacion:</label>
+                            <input type="password" class="form-control" name="codigoV" id="codigoV" placeholder="Codigo verificacion" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Aceptar</button>
                         </div>
                     </form>
                 </div>

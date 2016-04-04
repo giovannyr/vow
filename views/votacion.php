@@ -1,52 +1,44 @@
 <?php
 session_start();
-require "../config/DbOperator.php";
+require "../models/AutorizaRegistroOnline.php";
 
-if(isset($_GET['r'])){
+if (isset($_GET['r'])) {
     $codigo = $_GET['r'];
 
-    $link = DbOperator::conexion();
+    $aro = new AutorizaRegistroOnline();
 
-    $query1 = "SELECT codigo FROM codigoenlace WHERE codigo = '".$codigo."'";
-    $verify = mysql_query($query1, $link);
+    $existCod = $aro->existeCodigoEnlace($codigo);
 
-    if(mysql_num_rows($verify) == 1){
+    if ($existCod == 1) {
         $_SESSION['codigo'] = $codigo;
 
-        $query = "SELECT codEnlace FROM votacion WHERE codEnlace = '".$codigo."' ";
-        $result = mysql_query($query, $link);
+        $codeRegister = $aro->codigoRegistrado($codigo);
 
-        if($result != NULL){
-            if(!mysql_num_rows($result) > 0){
-                $_SESSION['autenticadoOnline'] = true; //echo "validar tipo votante con query, presentar papeleta de votacion, y registrar voto con codigo enlace";
-                $_SESSION['permisosOnline'] = true;
+        if ($codeRegister == false) {
+            $_SESSION['autenticadoOnline'] = true; //echo "validar tipo votante con query, presentar papeleta de votacion, y registrar voto con codigo enlace";
+            $_SESSION['permisosOnline'] = true;
 
-                include "view.php";
-            }else{
-                $_SESSION['autenticadoOnline'] = false;
-                $_SESSION['permisosOnline'] = false;
+            include "view.php";
+        } else {
+            $_SESSION['autenticadoOnline'] = false;
+            $_SESSION['permisosOnline'] = false;
 
-                echo "<center><h1>Ya se registro el voto</h1></center>";
-                close();
-            }
+            include './userMessages/votoRegistrado.php';
+            close();
         }
-
-    }else{
+    } else {
         $_SESSION['codigo'] = null;
 
-        echo "<center><h1>Utilice el link que llego a su correo</h1></center>";
+        include './userMessages/enlaceIncorrecto.php';
         close();
     }
 
-    mysql_close($link);
-}else{
-    echo "<center><h1>Utilice el link que llego a su correo</h1></center>";
+    $aro->cerrarConeccion();
+} else {
+    include './userMessages/enlaceIncorrecto.php';
     close();
 }
 
-
-function close(){
+function close() {
     echo "<script> setTimeout(function(){window.close();},5000); </script>";
 }
-
-?>

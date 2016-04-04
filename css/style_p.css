@@ -5,8 +5,9 @@ html,body{
     /*background-color: #888A65;*/
 }
 .container{
-    height: 100%;
-    background-color: white;
+    /*height: 100%;*/
+    height: 1300px;
+    background-color: transparent;
 }
 .container > div{
     height: 80%;
@@ -15,7 +16,8 @@ html,body{
     background-color: #282C34;
 }
 .fimg{
-    height: 50%;
+    /*height: 50%;*/
+    margin-bottom: 15px;
 }
 .vwhite{
     height: 10%;
@@ -24,17 +26,17 @@ html,body{
     /*background-color: red;*/
 }
 .photoCont{
-    height: 85%;
+    /*height: 85%;*/
 }
 .btnCont{
     /*background-color: yellowgreen;
     height: 15%;*/
 }
 .photoCont > div{
-    height: 100%;
+    /*height: 100%;*/
 }
 .imgCont{
-    height: 80%;
+    /*height: 80%;*/
 }
 h1{
     font-size: 1.5em;
@@ -55,8 +57,8 @@ h3{
     /*box-shadow: 2px 2px 5px #999;*/
 }
 .imgCandidatos{
-    width: 100%;
-    height: 100%;
+    width: 80;
+    /*height: 100%;*/
     border: 2px solid black;
     z-index: 0;
 }
@@ -75,4 +77,16 @@ hr{
 .marca > img{
     width: 100%;
     height: 100%;
+}
+
+header{
+    background-image: url(../images/success_fondo.png);
+    color: white;
+    margin-top: 0;
+    padding-top: 15px;
+}
+
+.imgCont > span{
+    margin-left: 20px;
+    font-size: 1.4em;
 }
